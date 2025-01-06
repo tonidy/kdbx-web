@@ -3,19 +3,23 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro build && wrangler pages dev",
+    "dev": "wrangler types && astro dev",
+    "start": "wrangler types && astro dev",
+    "build": "wrangler types && astro check && astro build",
+    "preview": "wrangler types && astro preview",
     "astro": "astro",
-    "deploy": "astro build && wrangler pages deploy",
+    "deploy": "wrangler types && astro build && wrangler pages deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/cloudflare": "^12.1.0",
-    "astro": "^5.1.2"
+    "astro": "^5.1.2",
+    "typescript": "^5.7.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241230.0",
+    "unenv-nightly": "2.0.0-20241218-183400-5d6aec3",
     "wrangler": "^3.99.0"
   }
 }
